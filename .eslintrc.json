@@ -21,9 +21,12 @@
 		"no-console": "off",
 		"comma-dangle": "off",
 		"react/jsx-indent": "off",
+		"object-shorthand": "off",
 		"import/extensions": "off",
+		"operator-linebreak": "off",
 		"import/no-unresolved": "off",
 		"react/jsx-indent-props": "off",
+		"react/no-array-index-key": "off",
 		"react/jsx-filename-extension": "off",
 		"import/no-extraneous-dependencies": "off"
 	}

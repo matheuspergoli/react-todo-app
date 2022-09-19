@@ -29,18 +29,37 @@ const FormContainer = styled.form`
 
 function AddTodo() {
 	const [value, setValue] = React.useState('')
-	console.log(value)
+	const [todos, setTodo] = React.useState([
+		{
+			todo: ''
+		}
+	])
+
+	function addNewTodo() {
+		setTodo([...todos, { todo: value }])
+	}
 
 	return (
-		<FormContainer onSubmit={(e) => e.preventDefault()}>
-			<input
-				type='text'
-				placeholder='add details'
-				value={value}
-				onChange={({ target }) => setValue(target.value)}
-			/>
-			<button type='button'>Add</button>
-		</FormContainer>
+		<>
+			<FormContainer onSubmit={(e) => e.preventDefault()}>
+				<input
+					type='text'
+					placeholder='add details'
+					value={value}
+					onChange={({ target }) => setValue(target.value)}
+				/>
+				<button type='button' onClick={addNewTodo}>
+					Add
+				</button>
+			</FormContainer>
+
+			{todos &&
+				todos.map((todo, index) => (
+					<section key={index}>
+						<p>{todo.todo}</p>
+					</section>
+				))}
+		</>
 	)
 }
 
