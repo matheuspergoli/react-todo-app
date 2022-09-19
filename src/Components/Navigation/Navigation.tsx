@@ -27,14 +27,18 @@ const ItemsContainer = styled.ul`
 
 function Navigation() {
 	const menuItems = React.useRef<HTMLLIElement[]>([])
+	const [selectedItem, setSelectedItem] = React.useState<HTMLLIElement | null>()
 
 	function handleClick({ target }: any) {
-		menuItems.current.forEach((item) => item.classList.remove('active'))
+		menuItems.current.forEach((item) => {
+			if (item) item.classList.remove('active')
+		})
 		target.classList.add('active')
 		const activeElement = menuItems.current.filter((item) => {
-			return item.classList.contains('active')
+			if (item) return item.classList.contains('active')
+			return null
 		})
-		console.log(activeElement[0])
+		setSelectedItem(activeElement[0])
 	}
 
 	return (
