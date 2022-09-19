@@ -17,6 +17,7 @@
 		"semi": "off",
 		"indent": "off",
 		"no-tabs": "off",
+		"no-alert": "off",
 		"jsx-quotes": "off",
 		"no-console": "off",
 		"comma-dangle": "off",

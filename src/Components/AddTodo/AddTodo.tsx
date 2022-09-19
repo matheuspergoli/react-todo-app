@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import Todo from '../Todo/Todo'
 
 const FormContainer = styled.form`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin-bottom: 10px;
 
 	input:focus,
 	input:active {
@@ -29,14 +31,18 @@ const FormContainer = styled.form`
 
 function AddTodo() {
 	const [value, setValue] = React.useState('')
-	const [todos, setTodo] = React.useState([
+	const [todos, setTodo] = React.useState<{ activity: string }[]>([
 		{
 			activity: ''
 		}
 	])
 
 	function addNewTodo() {
-		setTodo([...todos, { activity: value }])
+		if (value.length) {
+			setTodo([...todos, { activity: value }])
+		} else {
+			alert('Digite alguma coisa')
+		}
 	}
 
 	return (
@@ -55,9 +61,7 @@ function AddTodo() {
 
 			{todos &&
 				todos.map((todo, index) => (
-					<section key={index}>
-						<p>{todo.activity}</p>
-					</section>
+					<Todo key={index} activity={todo.activity} />
 				))}
 		</>
 	)
