@@ -34,11 +34,7 @@ const FormContainer = styled.form`
 
 function AddTodo() {
 	const [value, setValue] = React.useState('')
-	const [todos, setTodo] = React.useState<{ activity: string }[]>([
-		{
-			activity: ''
-		}
-	])
+	const [todos, setTodo] = React.useState<{ activity: string }[]>([])
 
 	function addNewTodo() {
 		if (value.length) {
