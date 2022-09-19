@@ -33,12 +33,15 @@ const FormContainer = styled.form`
 `
 
 function AddTodo() {
+	const inputElement = React.useRef<null | HTMLInputElement>(null)
 	const [value, setValue] = React.useState('')
 	const [todos, setTodo] = React.useState<{ activity: string }[]>([])
 
 	function addNewTodo() {
 		if (value.length) {
 			setTodo([...todos, { activity: value }])
+			setValue('')
+			inputElement.current?.focus()
 		} else {
 			alert('Digite alguma coisa')
 		}
@@ -50,6 +53,7 @@ function AddTodo() {
 				<input
 					type='text'
 					placeholder='Add details'
+					ref={inputElement}
 					value={value}
 					onChange={({ target }) => setValue(target.value)}
 				/>

@@ -6,14 +6,18 @@ const TodoContainer = styled.section`
 	align-items: center;
 	gap: 10px;
 
+	&.completed p {
+		text-decoration: line-through;
+	}
+
 	p {
 		font-size: 1.5rem;
 	}
 
-  input {
-    width: 1rem;
-    height: 1rem;
-  }
+	input {
+		width: 1rem;
+		height: 1rem;
+	}
 `
 
 interface TodoProps {
@@ -21,9 +25,15 @@ interface TodoProps {
 }
 
 function Todo({ activity }: TodoProps) {
+	const [isChecked, setIsChecked] = React.useState(false)
+
+	function handleChange() {
+		setIsChecked(!isChecked)
+	}
+
 	return (
-		<TodoContainer>
-			<input type='checkbox' />
+		<TodoContainer className={`${isChecked ? 'completed' : ''}`}>
+			<input type='checkbox' checked={isChecked} onChange={handleChange} />
 			<p>{activity}</p>
 		</TodoContainer>
 	)
