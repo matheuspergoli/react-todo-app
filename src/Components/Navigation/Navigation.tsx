@@ -27,7 +27,6 @@ const ItemsContainer = styled.ul`
 
 function Navigation() {
 	const menuItems = React.useRef<HTMLLIElement[]>([])
-	const [selectedItem, setSelectedItem] = React.useState<HTMLLIElement | null>()
 
 	function handleClick({ target }: any) {
 		menuItems.current.forEach((item) => {
@@ -38,7 +37,6 @@ function Navigation() {
 			if (item) return item.classList.contains('active')
 			return null
 		})
-		setSelectedItem(activeElement[0])
 	}
 
 	return (
