@@ -31,12 +31,12 @@ function AddTodo() {
 	const [value, setValue] = React.useState('')
 	const [todos, setTodo] = React.useState([
 		{
-			todo: ''
+			activity: ''
 		}
 	])
 
 	function addNewTodo() {
-		setTodo([...todos, { todo: value }])
+		setTodo([...todos, { activity: value }])
 	}
 
 	return (
@@ -56,7 +56,7 @@ function AddTodo() {
 			{todos &&
 				todos.map((todo, index) => (
 					<section key={index}>
-						<p>{todo.todo}</p>
+						<p>{todo.activity}</p>
 					</section>
 				))}
 		</>
