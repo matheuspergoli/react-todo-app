@@ -14,8 +14,9 @@ const ItemsContainer = styled.ul`
 
 	li {
 		cursor: pointer;
-		padding: 4px 10px;
-		font-size: 0.5rem;
+		font-size: 1rem;
+		padding: 5px 10px;
+		margin-bottom: 5px;
 
 		&.active {
 			border-radius: 5px;

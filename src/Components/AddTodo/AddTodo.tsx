@@ -6,6 +6,7 @@ const FormContainer = styled.form`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	gap: 10px;
 	margin-bottom: 10px;
 
 	input:focus,
@@ -14,16 +15,18 @@ const FormContainer = styled.form`
 	}
 
 	input {
-		width: 150px;
-		padding: 2px;
+		width: 100%;
+		padding: 5px;
+		font-size: 1rem;
 		border-radius: 5px;
 		border: 1px solid rgba(0, 0, 0, 0.2);
 	}
 
 	button {
 		border: none;
+		font-size: 1rem;
 		cursor: pointer;
-		padding: 3px 10px;
+		padding: 6px 20px;
 		border-radius: 5px;
 		background-color: #04c2c9;
 	}
@@ -50,7 +53,7 @@ function AddTodo() {
 			<FormContainer onSubmit={(e) => e.preventDefault()}>
 				<input
 					type='text'
-					placeholder='add details'
+					placeholder='Add details'
 					value={value}
 					onChange={({ target }) => setValue(target.value)}
 				/>

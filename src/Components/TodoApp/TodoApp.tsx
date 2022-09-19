@@ -6,7 +6,7 @@ import Navigation from '../Navigation/Navigation'
 
 const MainContainer = styled.main`
 	margin: 0 auto;
-	max-width: 200px;
+	max-width: 400px;
 `
 
 function TodoApp() {
