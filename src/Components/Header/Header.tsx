@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const HeaderContainer = styled.header`
-	margin-top: 50px;
 	margin-bottom: 50px;
 
 	h1 {

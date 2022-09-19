@@ -7,7 +7,7 @@ const FormContainer = styled.form`
 	align-items: center;
 	justify-content: space-between;
 	gap: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 
 	input:focus,
 	input:active {
@@ -29,6 +29,10 @@ const FormContainer = styled.form`
 		padding: 6px 20px;
 		border-radius: 5px;
 		background-color: #04c2c9;
+
+		&:active {
+			scale: 0.97;
+		}
 	}
 `
 

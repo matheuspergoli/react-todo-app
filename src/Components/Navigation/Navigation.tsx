@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const NavigationContainer = styled.nav`
 	padding: 0 20px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 `
 

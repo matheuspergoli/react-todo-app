@@ -5,8 +5,8 @@ import Header from '../Header/Header'
 import Navigation from '../Navigation/Navigation'
 
 const MainContainer = styled.main`
-	margin: 0 auto;
 	max-width: 400px;
+	margin: 50px auto 0 auto;
 `
 
 function TodoApp() {
