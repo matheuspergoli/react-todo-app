@@ -17,11 +17,14 @@
 		"semi": "off",
 		"indent": "off",
 		"no-tabs": "off",
+		"jsx-quotes": "off",
 		"no-console": "off",
 		"comma-dangle": "off",
 		"react/jsx-indent": "off",
 		"import/extensions": "off",
 		"import/no-unresolved": "off",
-		"react/jsx-filename-extension": "off"
+		"react/jsx-indent-props": "off",
+		"react/jsx-filename-extension": "off",
+		"import/no-extraneous-dependencies": "off"
 	}
 }
