@@ -37,6 +37,7 @@ function Navigation() {
 			if (item) return item.classList.contains('active')
 			return null
 		})
+		console.log(activeElement[0])
 	}
 
 	return (
