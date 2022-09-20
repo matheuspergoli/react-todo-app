@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { TodoContext } from '../Context/TodoContext'
 
 const NavigationContainer = styled.nav`
 	padding: 0 20px;
@@ -26,6 +27,7 @@ const ItemsContainer = styled.ul`
 `
 
 function Navigation() {
+	const { setSelectedItem } = React.useContext(TodoContext)
 	const $All = React.useRef<HTMLLIElement | null>(null)
 	const $Active = React.useRef<HTMLLIElement | null>(null)
 	const $Completed = React.useRef<HTMLLIElement | null>(null)
@@ -34,6 +36,10 @@ function Navigation() {
 		const menuItems = [$All, $Active, $Completed]
 		menuItems.forEach((item) => item.current?.classList.remove('active'))
 		target.classList.add('active')
+		const activeItem = menuItems.filter((item) => {
+			return item.current?.classList.contains('active')
+		})
+		setSelectedItem(activeItem[0].current)
 	}
 
 	return (

@@ -33,6 +33,7 @@
 		"react/jsx-filename-extension": "off",
 		"import/no-extraneous-dependencies": "off",
 		"jsx-a11y/click-events-have-key-events": "off",
+		"react/jsx-no-constructed-context-values": "off",
 		"jsx-a11y/no-noninteractive-element-interactions": "off"
 	}
 }
