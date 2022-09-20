@@ -27,35 +27,28 @@ const ItemsContainer = styled.ul`
 `
 
 function Navigation() {
-	const { setSelectedItem } = React.useContext(TodoContext)
-	const $All = React.useRef<HTMLLIElement | null>(null)
-	const $Active = React.useRef<HTMLLIElement | null>(null)
-	const $Completed = React.useRef<HTMLLIElement | null>(null)
+	const { selectedItem, setSelectedItem } = React.useContext(TodoContext)
+	const itemsContainerRef = React.useRef<HTMLUListElement | null>(null)
 
 	function handleClick({ target }: any) {
-		const menuItems = [$All, $Active, $Completed]
-		menuItems.forEach((item) => item.current?.classList.remove('active'))
-		target.classList.add('active')
-		const activeItem = menuItems.filter((item) => {
-			return item.current?.classList.contains('active')
+		const menuItems: HTMLLIElement[] = []
+		itemsContainerRef.current?.childNodes.forEach((item) => {
+			menuItems.push(item as HTMLLIElement)
 		})
-		setSelectedItem(activeItem[0].current)
+		menuItems.forEach((item) => item.classList.remove('active'))
+		target.classList.add('active')
+		const selectedMenuItem = menuItems.filter((item) => item.classList.contains('active'))
+		setSelectedItem(selectedMenuItem[0])
 	}
+
+	console.log(selectedItem)
 
 	return (
 		<NavigationContainer>
-			<ItemsContainer>
-				<li onClick={handleClick} ref={$All}>
-					All
-				</li>
-
-				<li onClick={handleClick} ref={$Active}>
-					Active
-				</li>
-
-				<li onClick={handleClick} ref={$Completed}>
-					Completed
-				</li>
+			<ItemsContainer ref={itemsContainerRef}>
+				<li onClick={handleClick}>All</li>
+				<li onClick={handleClick}>Active</li>
+				<li onClick={handleClick}>Completed</li>
 			</ItemsContainer>
 		</NavigationContainer>
 	)
