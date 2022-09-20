@@ -26,41 +26,28 @@ const ItemsContainer = styled.ul`
 `
 
 function Navigation() {
-	const menuItems = React.useRef<HTMLLIElement[]>([])
+	const $All = React.useRef<HTMLLIElement | null>(null)
+	const $Active = React.useRef<HTMLLIElement | null>(null)
+	const $Completed = React.useRef<HTMLLIElement | null>(null)
 
 	function handleClick({ target }: any) {
-		menuItems.current.forEach((item) => {
-			if (item) item.classList.remove('active')
-		})
+		const menuItems = [$All, $Active, $Completed]
+		menuItems.forEach((item) => item.current?.classList.remove('active'))
 		target.classList.add('active')
-		const activeElement = menuItems.current.filter((item) => {
-			if (item) return item.classList.contains('active')
-			return null
-		})
-		console.log(activeElement[0])
 	}
 
 	return (
 		<NavigationContainer>
 			<ItemsContainer>
-				<li
-					onClick={handleClick}
-					ref={(element: HTMLLIElement) => menuItems.current.push(element)}
-				>
+				<li onClick={handleClick} ref={$All}>
 					All
 				</li>
 
-				<li
-					onClick={handleClick}
-					ref={(element: HTMLLIElement) => menuItems.current.push(element)}
-				>
+				<li onClick={handleClick} ref={$Active}>
 					Active
 				</li>
 
-				<li
-					onClick={handleClick}
-					ref={(element: HTMLLIElement) => menuItems.current.push(element)}
-				>
+				<li onClick={handleClick} ref={$Completed}>
 					Completed
 				</li>
 			</ItemsContainer>
